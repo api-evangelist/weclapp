@@ -1,0 +1,321 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "weclapp REST API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "AuthenticationToken",
+        "value": "{{apiToken}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Customers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List customers.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/customer?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists customers with pagination."
+        },
+        {
+          "info": { "name": "Count customers.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/customer/count" },
+          "docs": "Returns the number of customers matching the given filters."
+        },
+        {
+          "info": { "name": "Create a customer.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/customer",
+            "body": { "type": "json", "data": "{\n  \"company\": \"Acme GmbH\",\n  \"partyType\": \"ORGANIZATION\"\n}" }
+          },
+          "docs": "Creates a customer."
+        },
+        {
+          "info": { "name": "Get a customer.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/customer/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The customer ID." }]
+          },
+          "docs": "Retrieves a customer by ID."
+        },
+        {
+          "info": { "name": "Update a customer.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/customer/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The customer ID." }],
+            "body": { "type": "json", "data": "{\n  \"id\": \"\",\n  \"company\": \"Acme GmbH\"\n}" }
+          },
+          "docs": "Updates a customer. Send the full entity."
+        },
+        {
+          "info": { "name": "Delete a customer.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/customer/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The customer ID." }]
+          },
+          "docs": "Deletes a customer."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Articles", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List articles.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/article?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists articles with pagination."
+        },
+        {
+          "info": { "name": "Count articles.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/article/count" },
+          "docs": "Returns the number of articles."
+        },
+        {
+          "info": { "name": "Create an article.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/article",
+            "body": { "type": "json", "data": "{\n  \"articleNumber\": \"SKU-1\",\n  \"name\": \"Widget\"\n}" }
+          },
+          "docs": "Creates an article."
+        },
+        {
+          "info": { "name": "Get an article.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/article/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The article ID." }]
+          },
+          "docs": "Retrieves an article by ID."
+        },
+        {
+          "info": { "name": "Update an article.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/article/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The article ID." }],
+            "body": { "type": "json", "data": "{\n  \"id\": \"\",\n  \"name\": \"Widget\"\n}" }
+          },
+          "docs": "Updates an article."
+        },
+        {
+          "info": { "name": "Delete an article.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/article/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The article ID." }]
+          },
+          "docs": "Deletes an article."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Sales Orders", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List sales orders.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesOrder?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists sales orders with pagination."
+        },
+        {
+          "info": { "name": "Count sales orders.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesOrder/count" },
+          "docs": "Returns the number of sales orders."
+        },
+        {
+          "info": { "name": "Create a sales order.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesOrder",
+            "body": { "type": "json", "data": "{\n  \"customerId\": \"\",\n  \"orderItems\": []\n}" }
+          },
+          "docs": "Creates a sales order."
+        },
+        {
+          "info": { "name": "Get a sales order.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesOrder/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The sales order ID." }]
+          },
+          "docs": "Retrieves a sales order by ID."
+        },
+        {
+          "info": { "name": "Update a sales order.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesOrder/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The sales order ID." }],
+            "body": { "type": "json", "data": "{\n  \"id\": \"\"\n}" }
+          },
+          "docs": "Updates a sales order."
+        },
+        {
+          "info": { "name": "Delete a sales order.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesOrder/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The sales order ID." }]
+          },
+          "docs": "Deletes a sales order."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Quotations", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List quotations.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/quotation?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists quotations with pagination."
+        },
+        {
+          "info": { "name": "Count quotations.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/quotation/count" },
+          "docs": "Returns the number of quotations."
+        },
+        {
+          "info": { "name": "Get a quotation.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/quotation/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The quotation ID." }]
+          },
+          "docs": "Retrieves a quotation by ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Sales Invoices", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List sales invoices.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesInvoice?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists sales invoices with pagination."
+        },
+        {
+          "info": { "name": "Count sales invoices.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesInvoice/count" },
+          "docs": "Returns the number of sales invoices."
+        },
+        {
+          "info": { "name": "Get a sales invoice.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/salesInvoice/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The sales invoice ID." }]
+          },
+          "docs": "Retrieves a sales invoice by ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Shipments", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List shipments.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/shipment?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists shipments with pagination."
+        },
+        {
+          "info": { "name": "Count shipments.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/shipment/count" },
+          "docs": "Returns the number of shipments."
+        },
+        {
+          "info": { "name": "Get a shipment.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/shipment/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The shipment ID." }]
+          },
+          "docs": "Retrieves a shipment by ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Purchase Orders", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List purchase orders.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/purchaseOrder?page=1&pageSize=100",
+            "params": [
+              { "name": "page", "value": "1", "type": "query", "description": "1-based page number." },
+              { "name": "pageSize", "value": "100", "type": "query", "description": "Results per page." }
+            ]
+          },
+          "docs": "Lists purchase orders with pagination."
+        },
+        {
+          "info": { "name": "Count purchase orders.", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/purchaseOrder/count" },
+          "docs": "Returns the number of purchase orders."
+        },
+        {
+          "info": { "name": "Get a purchase order.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://{{tenant}}.weclapp.com/webapp/api/v1/purchaseOrder/id/:id",
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The purchase order ID." }]
+          },
+          "docs": "Retrieves a purchase order by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

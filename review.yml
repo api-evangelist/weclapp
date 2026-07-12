@@ -1,0 +1,125 @@
+aid: weclapp
+name: weclapp
+review:
+  question: Does weclapp expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-12'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. weclapp's public integration surface is a
+    request/response REST API over HTTPS at
+    https://<tenant>.weclapp.com/webapp/api/v1/. There is no documented
+    server-push transport (WebSocket or SSE) on weclapp's own API to model.
+    weclapp does offer webhooks (server-to-endpoint HTTP callbacks) for change
+    notifications, but webhooks are outbound HTTP POSTs, not a WebSocket, and
+    are not modeled as AsyncAPI here.
+findings:
+  summary: |
+    weclapp does not publish a documented public WebSocket API. weclapp is a
+    German cloud ERP / CRM / commerce platform. Each tenant exposes a REST API
+    (v1) at https://<tenant>.weclapp.com/webapp/api/v1/ with a live Swagger UI.
+    Authentication is a per-user API token sent in the AuthenticationToken
+    request header (generated under My Settings > API); requests send
+    Accept: application/json and, for POST/PUT, Content-Type: application/json.
+    The API is pure request/response REST over HTTPS. Realtime / push
+    integration is provided via webhooks (outbound HTTP callbacks), not a
+    WebSocket. No ws:// or wss:// endpoint is documented anywhere in weclapp's
+    API reference as of the review date.
+  accessModel: |
+    Per-tenant host. There is no single shared API host - each customer's API
+    lives under their own subdomain (https://<tenant>.weclapp.com/webapp/api/v1/).
+    In this catalog entry the per-tenant host is represented with a {tenant}
+    server variable and is intentionally not a real, callable base URL. A v2 of
+    the API is being rolled out that consolidates /customer, /contact, /lead,
+    and /supplier into a single /party endpoint; this entry models the stable
+    v1 surface.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+      documented: true
+      note: Per-tenant REST API v1. AuthenticationToken header. Live Swagger per tenant.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: weclapp can POST change notifications to a configured HTTP endpoint. Outbound HTTP, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in weclapp's API reference or Swagger as of the review date.
+  endpointPatternsConfirmed:
+    - GET    https://{tenant}.weclapp.com/webapp/api/v1/{entity}
+    - GET    https://{tenant}.weclapp.com/webapp/api/v1/{entity}/count
+    - GET    https://{tenant}.weclapp.com/webapp/api/v1/{entity}/id/{id}
+    - POST   https://{tenant}.weclapp.com/webapp/api/v1/{entity}
+    - PUT    https://{tenant}.weclapp.com/webapp/api/v1/{entity}/id/{id}
+    - DELETE https://{tenant}.weclapp.com/webapp/api/v1/{entity}/id/{id}
+  entitiesConfirmed:
+    - customer
+    - article
+    - salesOrder
+    - quotation
+    - salesInvoice
+    - shipment
+    - purchaseOrder
+    - supplier
+    - contact
+    - lead
+    - party
+    - warehouse
+    - warehouseStock
+    - ticket
+  entitiesConfirmedNote: |
+    weclapp documents 150+ entities that all follow the same CRUD + /count +
+    /id/{id} URL conventions. The list above is the confirmed subset relevant to
+    this entry; the OpenAPI in this repo models the first seven in full. The
+    documented, stable v1 entity NAMES and URL conventions (list, /count,
+    /id/{id}, POST, PUT /id/{id}, DELETE /id/{id}) are confirmed from weclapp's
+    public API docs and multiple independent client libraries.
+  modeledNotConfirmed: |
+    The request/response field-level SCHEMAS in openapi/weclapp-openapi.yml are
+    MODELED from documented field names (e.g. articleNumber, salesOrderNumber,
+    customerNumber, orderItems) rather than copied from weclapp's live per-tenant
+    Swagger, which was not machine-fetched during this review (the public
+    Swagger UI at https://www.weclapp.com/api/ is a JavaScript-rendered app and
+    per-tenant specs require an authenticated tenant). Property lists are
+    illustrative and non-exhaustive; each modeled schema is flagged as such in
+    the OpenAPI descriptions. Pagination (page, pageSize), sorting (sort),
+    property selection (properties, additionalProperties), and filter operators
+    (e.g. {property}-eq) are documented and confirmed. Exact numeric rate limits
+    and current pricing figures are not reconciled (see rate-limits and plans).
+  filtersAndPaging: |
+    List endpoints support page and pageSize for pagination, sort for ordering
+    (prefix "-" for descending), properties / additionalProperties for field
+    selection and computed/related fields, and per-property filter operators
+    such as {property}-eq, -ne, -gt, -lt, -like, -in, -null, -notnull. Values are
+    JSON; booleans are serialized as the strings "true" / "false".
+sources:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+    note: Official weclapp API entry point; JavaScript-rendered live Swagger UI. Base URL, AuthenticationToken header, JSON headers.
+  - url: https://www.weclapp.com/api/changelogV2.html
+    type: Documentation
+    note: API v2 changelog; documents /party consolidation and the full entity list (article, salesInvoice, shipment, purchaseOrder, quotation, etc.).
+  - url: https://qualimero.com/en/blog/weclapp-api-integration-webhooks-ai-product-consultant-guide
+    type: Guide
+    note: Third-party integration guide; AuthenticationToken header, base URL, pageSize, filter operators, /party unification, webhooks.
+  - url: https://github.com/geccomedia/weclapp
+    type: SourceCode
+    note: Community PHP client; confirms base URL, CRUD URL patterns (PUT/DELETE /id/{id}), /count, filter operators, camelCase entity routes.
+  - url: https://pypi.org/project/weclappy/
+    type: SourceCode
+    note: Community Python client; confirms base https://<tenant>.weclapp.com/webapp/api/v1, entity names (salesOrder, article, customer, shipment, salesInvoice), get/get_all/post/put/delete.
+  - url: https://www.weclapp.com/en/pricing/
+    type: Pricing
+    note: weclapp editions and per-user/month pricing (CRM / ERP Services / ERP Trade), annual billing, free trial.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. weclapp's own public API is
+    request/response REST over HTTPS (per-tenant, AuthenticationToken header),
+    with outbound webhooks for notifications. No AsyncAPI document was created
+    because there is no documented server-push transport (WebSocket or SSE) on
+    weclapp's own API to model.

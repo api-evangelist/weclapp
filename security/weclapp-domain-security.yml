@@ -1,0 +1,33 @@
+generated: '2026-07-12'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts (per-tenant API host not probeable without a real tenant)
+hosts:
+- host: weclapp.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 12 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 15768000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  note: Redirects to https://www.weclapp.com/. Served by nginx.
+- host: www.weclapp.com
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+domains:
+- domain: weclapp.com
+  dnssec: true
+  caa: []
+  spf: true
+  spf_policy: '-all'
+  dmarc: true
+  dmarc_policy: none
+notes: >-
+  The REST API is served per tenant at https://<tenant>.weclapp.com/webapp/api/v1/.
+  There is no shared, tenant-agnostic API host to probe, so TLS/HSTS results above
+  are for the corporate/apex domain (weclapp.com) and its www host. Tenant hosts
+  inherit the weclapp.com wildcard TLS and HSTS includeSubDomains/preload policy.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

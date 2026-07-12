@@ -1,0 +1,20 @@
+generated: '2026-07-12'
+method: derived
+source: openapi/weclapp-openapi.yml
+summary:
+  types:
+  - apiKey
+schemes:
+- name: authenticationToken
+  type: apiKey
+  in: header
+  parameterName: AuthenticationToken
+  description: >-
+    Per-user API token issued inside weclapp under "My Settings > API", sent in
+    the `AuthenticationToken` request header (`AuthenticationToken: <token>`).
+    This is not OAuth and not a Bearer token. Requests must also send
+    `Accept: application/json`; `POST` and `PUT` requests must additionally send
+    `Content-Type: application/json`.
+  sources:
+  - openapi/weclapp-openapi.yml
+  - https://www.weclapp.com/api/

@@ -1,0 +1,56 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: weclapp
+providerId: weclapp
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+tags:
+- ERP
+- CRM
+- Cloud ERP
+- Rate Limiting
+- Quotas
+description: >-
+  weclapp applies request throttling on its per-tenant REST API to protect the
+  shared platform, but does not publish a single fixed public number (requests
+  per minute) that is stable across tenants and editions. Practically, clients
+  should page efficiently (use pageSize and the /count endpoint), request only
+  the properties they need (properties / additionalProperties), filter
+  server-side with the per-property operators, and back off on HTTP 429. Because
+  the API is per-tenant, throughput is also bounded by the tenant's plan and the
+  underlying instance rather than by a documented global ceiling.
+notes: >-
+  No authoritative numeric per-minute limit is documented publicly as of the
+  review date; confirm current limits with weclapp support or in the live
+  per-tenant Swagger / API docs. Treat 429 as the throttling signal and honor
+  any Retry-After header.
+sources:
+- https://www.weclapp.com/api/
+- https://qualimero.com/en/blog/weclapp-api-integration-webhooks-ai-product-consultant-guide
+responseCodes:
+  throttled: 429
+limits:
+- name: REST API Requests
+  scope: tenant
+  metric: requests
+  limit: not published
+  notes: weclapp throttles API requests per tenant; a fixed public per-minute number is not documented.
+- name: Page Size
+  scope: request
+  metric: results
+  limit: configurable via pageSize
+  notes: List endpoints return pageSize results per page; use page to paginate and /count to size result sets.
+policies:
+- name: Pagination
+  description: Use page and pageSize on list endpoints; call /{entity}/count to size a result set before paging.
+- name: Field Selection
+  description: Request only needed fields with properties, and computed/related fields with additionalProperties, to reduce payload and load.
+- name: Server-Side Filtering
+  description: Filter with per-property operators ({property}-eq, -ne, -gt, -lt, -like, -in, -null, -notnull) instead of client-side filtering.
+- name: Backoff Strategy
+  description: On HTTP 429, back off with exponential delay and jitter and honor any Retry-After header before retrying.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

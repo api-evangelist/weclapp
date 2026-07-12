@@ -1,0 +1,333 @@
+{
+  "info": {
+    "name": "weclapp REST API",
+    "description": "Per-tenant weclapp cloud ERP / CRM / commerce REST API (v1). Base URL: https://{{tenant}}.weclapp.com/webapp/api/v1 - replace {{tenant}} with your weclapp subdomain. Authentication is a per-user API token (My Settings > API) sent in the AuthenticationToken header. All requests send Accept: application/json; POST/PUT also send Content-Type: application/json. Each entity supports list (GET /{entity}), count (GET /{entity}/count), get (GET /{entity}/id/{id}), create (POST /{entity}), update (PUT /{entity}/id/{id}), and delete (DELETE /{entity}/id/{id}).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "AuthenticationToken", "type": "string" },
+      { "key": "value", "value": "{{apiToken}}", "type": "string" },
+      { "key": "in", "value": "header", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "tenant", "value": "your-tenant", "type": "string" },
+    { "key": "baseUrl", "value": "https://{{tenant}}.weclapp.com/webapp/api/v1", "type": "string" },
+    { "key": "apiToken", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "List customers",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/customer?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["customer"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists customers with pagination."
+          }
+        },
+        {
+          "name": "Count customers",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/customer/count", "host": ["{{baseUrl}}"], "path": ["customer", "count"] },
+            "description": "Returns the number of customers matching the given filters."
+          }
+        },
+        {
+          "name": "Create a customer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Accept", "value": "application/json" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"company\": \"Acme GmbH\",\n  \"partyType\": \"ORGANIZATION\"\n}" },
+            "url": { "raw": "{{baseUrl}}/customer", "host": ["{{baseUrl}}"], "path": ["customer"] },
+            "description": "Creates a customer."
+          }
+        },
+        {
+          "name": "Get a customer",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/customer/id/:id", "host": ["{{baseUrl}}"], "path": ["customer", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a customer by ID."
+          }
+        },
+        {
+          "name": "Update a customer",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Accept", "value": "application/json" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"\",\n  \"company\": \"Acme GmbH\"\n}" },
+            "url": { "raw": "{{baseUrl}}/customer/id/:id", "host": ["{{baseUrl}}"], "path": ["customer", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a customer. Send the full entity."
+          }
+        },
+        {
+          "name": "Delete a customer",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/customer/id/:id", "host": ["{{baseUrl}}"], "path": ["customer", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a customer."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "List articles",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/article?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["article"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists articles with pagination."
+          }
+        },
+        {
+          "name": "Count articles",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/article/count", "host": ["{{baseUrl}}"], "path": ["article", "count"] },
+            "description": "Returns the number of articles."
+          }
+        },
+        {
+          "name": "Create an article",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Accept", "value": "application/json" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"articleNumber\": \"SKU-1\",\n  \"name\": \"Widget\"\n}" },
+            "url": { "raw": "{{baseUrl}}/article", "host": ["{{baseUrl}}"], "path": ["article"] },
+            "description": "Creates an article."
+          }
+        },
+        {
+          "name": "Get an article",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/article/id/:id", "host": ["{{baseUrl}}"], "path": ["article", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves an article by ID."
+          }
+        },
+        {
+          "name": "Update an article",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Accept", "value": "application/json" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"\",\n  \"name\": \"Widget\"\n}" },
+            "url": { "raw": "{{baseUrl}}/article/id/:id", "host": ["{{baseUrl}}"], "path": ["article", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates an article."
+          }
+        },
+        {
+          "name": "Delete an article",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/article/id/:id", "host": ["{{baseUrl}}"], "path": ["article", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes an article."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sales Orders",
+      "item": [
+        {
+          "name": "List sales orders",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesOrder?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["salesOrder"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists sales orders with pagination."
+          }
+        },
+        {
+          "name": "Count sales orders",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesOrder/count", "host": ["{{baseUrl}}"], "path": ["salesOrder", "count"] },
+            "description": "Returns the number of sales orders."
+          }
+        },
+        {
+          "name": "Create a sales order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Accept", "value": "application/json" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customerId\": \"\",\n  \"orderItems\": []\n}" },
+            "url": { "raw": "{{baseUrl}}/salesOrder", "host": ["{{baseUrl}}"], "path": ["salesOrder"] },
+            "description": "Creates a sales order."
+          }
+        },
+        {
+          "name": "Get a sales order",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesOrder/id/:id", "host": ["{{baseUrl}}"], "path": ["salesOrder", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a sales order by ID."
+          }
+        },
+        {
+          "name": "Update a sales order",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Accept", "value": "application/json" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/salesOrder/id/:id", "host": ["{{baseUrl}}"], "path": ["salesOrder", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a sales order."
+          }
+        },
+        {
+          "name": "Delete a sales order",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesOrder/id/:id", "host": ["{{baseUrl}}"], "path": ["salesOrder", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a sales order."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quotations",
+      "item": [
+        {
+          "name": "List quotations",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/quotation?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["quotation"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists quotations with pagination."
+          }
+        },
+        {
+          "name": "Count quotations",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/quotation/count", "host": ["{{baseUrl}}"], "path": ["quotation", "count"] },
+            "description": "Returns the number of quotations."
+          }
+        },
+        {
+          "name": "Get a quotation",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/quotation/id/:id", "host": ["{{baseUrl}}"], "path": ["quotation", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a quotation by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sales Invoices",
+      "item": [
+        {
+          "name": "List sales invoices",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesInvoice?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["salesInvoice"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists sales invoices with pagination."
+          }
+        },
+        {
+          "name": "Count sales invoices",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesInvoice/count", "host": ["{{baseUrl}}"], "path": ["salesInvoice", "count"] },
+            "description": "Returns the number of sales invoices."
+          }
+        },
+        {
+          "name": "Get a sales invoice",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/salesInvoice/id/:id", "host": ["{{baseUrl}}"], "path": ["salesInvoice", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a sales invoice by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shipments",
+      "item": [
+        {
+          "name": "List shipments",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/shipment?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["shipment"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists shipments with pagination."
+          }
+        },
+        {
+          "name": "Count shipments",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/shipment/count", "host": ["{{baseUrl}}"], "path": ["shipment", "count"] },
+            "description": "Returns the number of shipments."
+          }
+        },
+        {
+          "name": "Get a shipment",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/shipment/id/:id", "host": ["{{baseUrl}}"], "path": ["shipment", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a shipment by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Purchase Orders",
+      "item": [
+        {
+          "name": "List purchase orders",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/purchaseOrder?page=1&pageSize=100", "host": ["{{baseUrl}}"], "path": ["purchaseOrder"], "query": [{ "key": "page", "value": "1" }, { "key": "pageSize", "value": "100" }] },
+            "description": "Lists purchase orders with pagination."
+          }
+        },
+        {
+          "name": "Count purchase orders",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/purchaseOrder/count", "host": ["{{baseUrl}}"], "path": ["purchaseOrder", "count"] },
+            "description": "Returns the number of purchase orders."
+          }
+        },
+        {
+          "name": "Get a purchase order",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/purchaseOrder/id/:id", "host": ["{{baseUrl}}"], "path": ["purchaseOrder", "id", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a purchase order by ID."
+          }
+        }
+      ]
+    }
+  ]
+}

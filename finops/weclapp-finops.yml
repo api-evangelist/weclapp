@@ -1,0 +1,90 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: weclapp
+providerId: weclapp
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+tags:
+- ERP
+- CRM
+- Cloud ERP
+- SaaS
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of weclapp spend. weclapp is a per-seat SaaS subscription billed in
+  EUR per named user per month, by edition (CRM, ERP Services, ERP Trade) with
+  custom/enterprise options; annual billing is cheaper than monthly. The REST API
+  is included in the subscription rather than metered separately, so the dominant
+  cost driver is seat count and edition rather than API call volume. Non-seat
+  costs are typically onboarding / implementation and premium support. Because
+  cost scales with users (not requests), the API is a way to reduce total cost of
+  ownership - automating data entry and integrations so fewer seats do more work.
+notes: >-
+  Per-edition rates are approximate and not reconciled here; verify on the
+  weclapp pricing page. There is no separate per-request API charge documented -
+  API usage is bounded by throttling and the tenant plan, not billed per call.
+sources:
+- https://www.weclapp.com/en/pricing/
+- https://www.weclapp.com/api/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: weclapp
+serviceCategory: Business Applications
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly or Annual
+  billingCurrency: EUR
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: weclapp
+  ServiceCategory: Business Applications
+  ProviderName: weclapp
+  PublisherName: weclapp
+  InvoiceIssuerName: weclapp
+  BillingCurrency: EUR
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: user_seats
+  description: Named user seats subscribed, per edition, billed per month (the primary cost driver).
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - edition
+- name: onboarding
+  description: One-time onboarding / implementation services.
+  unit: engagement
+  aggregation: sum
+  dimensions:
+  - account
+- name: premium_support
+  description: Optional premium support package fees.
+  unit: package
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track subscribed seats per edition and any add-on / support fees; API usage itself is not separately billed.
+- name: Allocation
+  description: Map seats to teams / cost centers by edition so subscription spend is attributable.
+- name: Optimization
+  description: Use the REST API to automate data flows and integrations so fewer seats are needed; prefer annual billing; right-size the edition to the modules actually used.
+- name: Accountability
+  description: Review seat counts and edition mix each renewal against actual usage; reclaim unused seats.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

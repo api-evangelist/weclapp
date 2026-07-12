@@ -1,0 +1,205 @@
+aid: weclapp
+url: https://raw.githubusercontent.com/api-evangelist/weclapp/refs/heads/main/apis.yml
+name: weclapp
+kind: company
+description: >-
+  weclapp is a German cloud ERP / CRM / commerce platform for small and
+  mid-sized businesses, combining CRM, sales, order management, accounting,
+  inventory / warehouse management, purchasing, and e-commerce in one SaaS
+  suite. Every weclapp tenant exposes a documented REST API at
+  https://<tenant>.weclapp.com/webapp/api/v1/ with a live Swagger, covering
+  150+ business entities - parties (customers, suppliers, contacts, leads),
+  articles, sales orders, quotations, sales invoices, shipments, purchase
+  orders, warehouses, and more. Authentication is a per-user API token sent in
+  the AuthenticationToken request header.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- ERP
+- CRM
+- Cloud ERP
+- Accounting
+- Inventory
+- Commerce
+- Germany
+- Order Management
+- Business Software
+- SaaS
+created: '2026-07-12'
+modified: '2026-07-12'
+specificationVersion: '0.19'
+apis:
+- aid: weclapp:weclapp-customer-api
+  name: weclapp Customer API
+  tags:
+  - CRM
+  - Customers
+  - Party
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: https://www.weclapp.com/api/
+    type: APIReference
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Create, read, update, delete, list, and count customer master data. In
+    weclapp's data model a customer is a party in the customer role; the API v1
+    exposes it at /customer with the standard list, /count, and /id/{id}
+    patterns.
+- aid: weclapp:weclapp-article-api
+  name: weclapp Article API
+  tags:
+  - Articles
+  - Products
+  - Catalog
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Manage catalog articles / products - article number (SKU), name,
+    description, unit, type, and status - with list, count, get, create, update,
+    and delete operations at /article.
+- aid: weclapp:weclapp-sales-order-api
+  name: weclapp Sales Order API
+  tags:
+  - Sales Orders
+  - Order Management
+  - Sales
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Create and manage sales orders with their order items, customer, currency,
+    status, and dates at /salesOrder, using the standard list, /count, and
+    /id/{id} conventions.
+- aid: weclapp:weclapp-quotation-api
+  name: weclapp Quotation API
+  tags:
+  - Quotations
+  - Quotes
+  - Sales
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Manage sales quotations / quotes and their line items at /quotation,
+    including list, count, get, create, update, and delete.
+- aid: weclapp:weclapp-sales-invoice-api
+  name: weclapp Sales Invoice API
+  tags:
+  - Invoices
+  - Accounting
+  - Billing
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Create and manage sales invoices with their items, customer, currency,
+    status, and invoice date at /salesInvoice, using list, /count, and /id/{id}.
+- aid: weclapp:weclapp-shipment-api
+  name: weclapp Shipment API
+  tags:
+  - Shipments
+  - Fulfillment
+  - Inventory
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Manage outbound shipments / deliveries linked to sales orders and
+    warehouses at /shipment, including list, count, get, create, update, and
+    delete.
+- aid: weclapp:weclapp-purchase-order-api
+  name: weclapp Purchase Order API
+  tags:
+  - Purchase Orders
+  - Purchasing
+  - Procurement
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.weclapp.com/api/
+  baseURL: https://{tenant}.weclapp.com/webapp/api/v1
+  properties:
+  - url: https://www.weclapp.com/api/
+    type: Documentation
+  - url: openapi/weclapp-openapi.yml
+    type: OpenAPI
+  - url: collections/weclapp.postman_collection.json
+    type: PostmanCollection
+  - url: collections/weclapp.opencollection.json
+    type: OpenCollection
+  description: >-
+    Create and manage purchase orders to suppliers with their items, supplier,
+    currency, status, and order date at /purchaseOrder, using list, /count, and
+    /id/{id}.
+common:
+- type: DomainSecurity
+  url: security/weclapp-domain-security.yml
+- type: Authentication
+  url: authentication/weclapp-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/weclapp
+- type: Website
+  url: https://www.weclapp.com/
+- type: Documentation
+  url: https://www.weclapp.com/api/
+- type: Plans
+  url: plans/weclapp-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/weclapp-rate-limits.yml
+- type: FinOps
+  url: finops/weclapp-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

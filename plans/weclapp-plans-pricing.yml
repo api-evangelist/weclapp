@@ -1,0 +1,146 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: weclapp
+providerId: weclapp
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+tags:
+- ERP
+- CRM
+- Cloud ERP
+- SaaS
+- Plans
+description: >-
+  weclapp is sold as a per-user, per-month SaaS subscription in several editions
+  aligned to how a business uses the platform - a CRM edition, an ERP edition for
+  service companies (Dienstleistung), and an ERP edition for trade / e-commerce
+  (Handel), plus custom/enterprise arrangements. Prices scale per named user and
+  are lower on annual billing than monthly. A free trial is available. The REST
+  API is included in the subscription - there is no separate API product or
+  metered API fee; API access is a feature of the platform edition you buy.
+  Exact per-edition rates below are illustrative of published figures and are not
+  reconciled here.
+notes: >-
+  Figures are drawn from public pricing summaries (approximate, EUR, per user per
+  month) and vary by region, edition scope, contract term, and add-ons.
+  Onboarding / implementation and premium support are typically priced
+  separately. Verify current editions and rates on the weclapp pricing page
+  during reconciliation.
+currency: EUR
+sources:
+- https://www.weclapp.com/en/pricing/
+- https://www.weclapp.com/api/
+- https://qualimero.com/en/blog/weclapp-prices-costs-2026-complete-guide
+plans:
+- id: weclapp-trial
+  name: Free Trial
+  type: trial
+  description: >-
+    Time-limited free trial of weclapp (historically 30 days) to evaluate the
+    platform, including API access, before subscribing.
+  entries:
+  - label: Trial Period
+    name: trial_period
+    type: flat
+    metric: days
+    limit: 30
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: free during the trial window
+    userMultiplied: false
+  elements:
+  - name: Full Platform Evaluation
+  - name: REST API Access
+- id: weclapp-crm
+  name: CRM
+  type: paid
+  description: >-
+    CRM-focused edition (contacts, leads, opportunities, activities) with REST
+    API access, billed per user per month.
+  entries:
+  - label: Per User / Month (CRM)
+    name: crm_per_user
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: approx EUR 64 per user / month (annual billing; verify)
+    userMultiplied: true
+  elements:
+  - name: CRM
+  - name: REST API Access
+- id: weclapp-erp-services
+  name: ERP Services (Dienstleistung)
+  type: paid
+  description: >-
+    ERP edition for service / professional-services companies, adding project
+    management, time tracking, and accounting to CRM, billed per user per month.
+  entries:
+  - label: Per User / Month (ERP Services)
+    name: erp_services_per_user
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: approx EUR 84 per user / month (annual billing; verify)
+    userMultiplied: true
+  elements:
+  - name: CRM
+  - name: Project Management
+  - name: Accounting
+  - name: REST API Access
+- id: weclapp-erp-trade
+  name: ERP Trade (Handel)
+  type: paid
+  description: >-
+    ERP edition for trade / retail / e-commerce, adding order management,
+    inventory / warehouse management, shipping, and purchasing, billed per user
+    per month.
+  entries:
+  - label: Per User / Month (ERP Trade)
+    name: erp_trade_per_user
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: approx EUR 159 per user / month (annual billing; verify)
+    userMultiplied: true
+  elements:
+  - name: Order Management
+  - name: Inventory and Warehouse
+  - name: Shipping and Fulfillment
+  - name: Purchasing
+  - name: REST API Access
+- id: weclapp-enterprise
+  name: Enterprise / Custom
+  type: enterprise
+  description: >-
+    Custom arrangements for larger deployments - volume seat pricing, added
+    modules, integrations, onboarding, and premium support. Contact weclapp.
+  entries:
+  - label: Custom Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Volume Seat Pricing
+  - name: Onboarding and Implementation
+  - name: Premium Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
