@@ -184,6 +184,8 @@ apis:
     currency, status, and order date at /purchaseOrder, using list, /count, and
     /id/{id}.
 common:
+- type: AgenticAccess
+  url: agentic-access/weclapp-agentic-access.yml
 - type: DomainSecurity
   url: security/weclapp-domain-security.yml
 - type: Authentication
