@@ -1,0 +1,259 @@
+openapi: 3.0.3
+info:
+  title: weclapp REST Article Shipment API
+  description: 'weclapp is a German cloud ERP / CRM / commerce platform. Its REST API (v1) is exposed per tenant at https://{tenant}.weclapp.com/webapp/api/v1 and covers the platform''s business entities - parties (customers, suppliers, contacts, leads), articles, sales orders, quotations, sales invoices, shipments, purchase orders, warehouses, and more (150+ entities in the full Swagger). Every entity follows the same CRUD conventions: list at `/{entity}`, count at `/{entity}/count`, fetch one at `/{entity}/id/{id}`, create with `POST /{entity}`, update with `PUT /{entity}/id/{id}`, and delete with `DELETE /{entity}/id/{id}`. Authentication is an API token sent in the `AuthenticationToken` request header. This document models a grounded, representative subset of the documented v1 entities; the request/response field schemas are modeled from documented field names rather than copied from weclapp''s live Swagger, so property lists are illustrative and not exhaustive. Consult the live per-tenant Swagger at https://<tenant>.weclapp.com/webapp/api/v1/ (or https://www.weclapp.com/api/) for the authoritative schema.'
+  version: v1
+  contact:
+    name: weclapp
+    url: https://www.weclapp.com/api/
+servers:
+- url: https://{tenant}.weclapp.com/webapp/api/v1
+  description: Per-tenant weclapp REST API (v1). Replace {tenant} with your weclapp subdomain.
+  variables:
+    tenant:
+      default: your-tenant
+      description: Your weclapp tenant subdomain (for example, the "acme" in acme.weclapp.com).
+security:
+- authenticationToken: []
+tags:
+- name: Shipment
+  description: Outbound shipments / deliveries.
+paths:
+  /shipment:
+    get:
+      operationId: getShipments
+      tags:
+      - Shipment
+      summary: List shipments
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Properties'
+      - $ref: '#/components/parameters/AdditionalProperties'
+      responses:
+        '200':
+          description: A page of shipments.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShipmentList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createShipment
+      tags:
+      - Shipment
+      summary: Create a shipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shipment'
+      responses:
+        '201':
+          description: The created shipment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /shipment/count:
+    get:
+      operationId: countShipments
+      tags:
+      - Shipment
+      summary: Count shipments
+      responses:
+        '200':
+          description: The count result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /shipment/id/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      operationId: getShipmentById
+      tags:
+      - Shipment
+      summary: Get a shipment
+      responses:
+        '200':
+          description: The requested shipment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateShipment
+      tags:
+      - Shipment
+      summary: Update a shipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Shipment'
+      responses:
+        '200':
+          description: The updated shipment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteShipment
+      tags:
+      - Shipment
+      summary: Delete a shipment
+      responses:
+        '204':
+          description: The shipment was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  parameters:
+    PageSize:
+      name: pageSize
+      in: query
+      required: false
+      description: Number of results per page.
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for paginated list results.
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the entity.
+      schema:
+        type: string
+    AdditionalProperties:
+      name: additionalProperties
+      in: query
+      required: false
+      description: Comma-separated list of computed / related properties to include in the response.
+      schema:
+        type: string
+    Sort:
+      name: sort
+      in: query
+      required: false
+      description: Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`).
+      schema:
+        type: string
+    Properties:
+      name: properties
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+  schemas:
+    Shipment:
+      type: object
+      description: Outbound shipment / delivery. Modeled subset of documented fields.
+      properties:
+        id:
+          type: string
+        shipmentNumber:
+          type: string
+        customerId:
+          type: string
+        salesOrderId:
+          type: string
+        status:
+          type: string
+        shipmentDate:
+          type: integer
+          format: int64
+        warehouseId:
+          type: string
+        createdDate:
+          type: integer
+          format: int64
+        lastModifiedDate:
+          type: integer
+          format: int64
+    ShipmentList:
+      type: object
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shipment'
+    CountResult:
+      type: object
+      properties:
+        result:
+          type: integer
+          description: The number of matching entities.
+    Error:
+      type: object
+      description: Error envelope (modeled; consult live Swagger for the exact shape).
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+  responses:
+    NotFound:
+      description: The requested entity was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid AuthenticationToken.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request was invalid (for example, an unknown or invalid property).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    authenticationToken:
+      type: apiKey
+      in: header
+      name: AuthenticationToken
+      description: 'API token issued per weclapp user under "My Settings > API". Sent in the `AuthenticationToken` request header. Requests must also send `Accept: application/json`; `POST` and `PUT` requests must send `Content-Type: application/json`.'
