@@ -1,0 +1,26 @@
+{
+  "provider": "weclapp",
+  "sources": [
+    "weclapp-article-api-openapi.yml",
+    "weclapp-customer-api-openapi.yml",
+    "weclapp-purchase-order-api-openapi.yml",
+    "weclapp-quotation-api-openapi.yml",
+    "weclapp-sales-invoice-api-openapi.yml",
+    "weclapp-sales-order-api-openapi.yml",
+    "weclapp-shipment-api-openapi.yml"
+  ],
+  "outputs": [
+    "weclapp-article-api-openapi.yml",
+    "weclapp-customer-api-openapi.yml",
+    "weclapp-purchase-order-api-openapi.yml",
+    "weclapp-quotation-api-openapi.yml",
+    "weclapp-sales-invoice-api-openapi.yml",
+    "weclapp-sales-order-api-openapi.yml",
+    "weclapp-shipment-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
