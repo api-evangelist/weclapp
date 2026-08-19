@@ -1,0 +1,1413 @@
+{
+  "item": [
+    {
+      "id": "4082746a-5253-4f09-8531-4614ecb69dd0",
+      "name": "Quotation",
+      "description": {
+        "content": "Sales quotations / quotes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72049491-8712-4c0e-8b16-60689531f6c9",
+          "name": "List quotations",
+          "request": {
+            "name": "List quotations",
+            "description": {},
+            "url": {
+              "path": [
+                "quotation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "1-based page number for paginated list results."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "properties",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "additionalProperties",
+                  "value": "<string>",
+                  "description": "Comma-separated list of computed / related properties to include in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08ab814b-69cc-42a5-9be1-0153ec8a83a2",
+              "name": "A page of quotations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "properties",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additionalProperties",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"quotationNumber\": \"string\",\n      \"customerId\": \"string\",\n      \"status\": \"string\",\n      \"quotationDate\": 6010,\n      \"currencyId\": \"string\",\n      \"quotationItems\": [\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"createdDate\": 9601,\n      \"lastModifiedDate\": 8903\n    },\n    {\n      \"id\": \"string\",\n      \"quotationNumber\": \"string\",\n      \"customerId\": \"string\",\n      \"status\": \"string\",\n      \"quotationDate\": 1848,\n      \"currencyId\": \"string\",\n      \"quotationItems\": [\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"createdDate\": 4831,\n      \"lastModifiedDate\": 9256\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "881006bf-fd99-4a5e-b09f-0a825dd7fb87",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "properties",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additionalProperties",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7426ffd7-2bc1-4930-99b6-25ef0d658081",
+          "name": "Create a quotation",
+          "request": {
+            "name": "Create a quotation",
+            "description": {},
+            "url": {
+              "path": [
+                "quotation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4f0e950-5696-47db-bd6d-c504e862da81",
+              "name": "The created quotation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c82afa94-b3c3-4a9e-a481-c09ab06790eb",
+              "name": "The request was invalid (for example, an unknown or invalid property).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87022250-8de3-4e8e-a9d0-1238419a6f36",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "046f51a4-271e-4d52-a723-5081b4082df4",
+          "name": "Count quotations",
+          "request": {
+            "name": "Count quotations",
+            "description": {},
+            "url": {
+              "path": [
+                "quotation",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e90488e5-15bc-4e4d-9b77-39fddefa190b",
+              "name": "The count result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": 7679\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33faf2fc-cbe5-4954-ad3c-a4d86cdd1eb6",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a9b4174-f14d-4714-a539-52ce9fe3e896",
+          "name": "Get a quotation",
+          "request": {
+            "name": "Get a quotation",
+            "description": {},
+            "url": {
+              "path": [
+                "quotation",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d1c1c21-322c-42a5-8698-43d428c525d5",
+              "name": "The requested quotation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8cfe071-5330-4ea8-8401-a23fdd95e290",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a644f0d-9123-4e3c-9d0c-0dd5e48c299c",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0edc230-3987-429b-8f8c-2a7bb753b588",
+          "name": "Update a quotation",
+          "request": {
+            "name": "Update a quotation",
+            "description": {},
+            "url": {
+              "path": [
+                "quotation",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c64e4534-9454-4e6f-a2c5-3927e882c3fe",
+              "name": "The updated quotation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4116a1be-dcf5-4848-b482-246faeae7b78",
+              "name": "The request was invalid (for example, an unknown or invalid property).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0d8163f-03d8-417a-8c86-6b3bb0d79409",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12915c92-48db-427d-afce-43b265cb91e6",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"quotationNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"quotationDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"quotationItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28582b8d-db27-4048-a784-3f5c1bbe44c6",
+          "name": "Delete a quotation",
+          "request": {
+            "name": "Delete a quotation",
+            "description": {},
+            "url": {
+              "path": [
+                "quotation",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10dc4553-7f00-4c44-92a6-463b8b090d7f",
+              "name": "The quotation was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bd9b131-c39f-47e7-99e9-edd37fca8f0f",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad05c144-595b-4a6d-b949-ee1dd6224496",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotation",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.weclapp.com/webapp/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AuthenticationToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5fb89c27-e911-48f4-952f-9cc387079eea",
+    "name": "weclapp REST Article Quotation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "weclapp is a German cloud ERP / CRM / commerce platform. Its REST API (v1) is exposed per tenant at https://{tenant}.weclapp.com/webapp/api/v1 and covers the platform's business entities - parties (customers, suppliers, contacts, leads), articles, sales orders, quotations, sales invoices, shipments, purchase orders, warehouses, and more (150+ entities in the full Swagger). Every entity follows the same CRUD conventions: list at `/{entity}`, count at `/{entity}/count`, fetch one at `/{entity}/id/{id}`, create with `POST /{entity}`, update with `PUT /{entity}/id/{id}`, and delete with `DELETE /{entity}/id/{id}`. Authentication is an API token sent in the `AuthenticationToken` request header. This document models a grounded, representative subset of the documented v1 entities; the request/response field schemas are modeled from documented field names rather than copied from weclapp's live Swagger, so property lists are illustrative and not exhaustive. Consult the live per-tenant Swagger at https://<tenant>.weclapp.com/webapp/api/v1/ (or https://www.weclapp.com/api/) for the authoritative schema.\n\nContact Support:\n Name: weclapp",
+      "type": "text/plain"
+    }
+  }
+}

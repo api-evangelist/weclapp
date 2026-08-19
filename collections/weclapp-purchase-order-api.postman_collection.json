@@ -1,0 +1,1413 @@
+{
+  "item": [
+    {
+      "id": "fee47685-e20e-4a87-b395-087d579459ba",
+      "name": "Purchase Order",
+      "description": {
+        "content": "Purchase orders to suppliers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0f9320e-4abd-48e4-bc9f-56b0939e2c84",
+          "name": "List purchase orders",
+          "request": {
+            "name": "List purchase orders",
+            "description": {},
+            "url": {
+              "path": [
+                "purchaseOrder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "1-based page number for paginated list results."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "properties",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "additionalProperties",
+                  "value": "<string>",
+                  "description": "Comma-separated list of computed / related properties to include in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de77e4e1-f883-4f7f-bd68-7660202c229f",
+              "name": "A page of purchase orders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "properties",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additionalProperties",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"purchaseOrderNumber\": \"string\",\n      \"supplierId\": \"string\",\n      \"status\": \"string\",\n      \"orderDate\": 1410,\n      \"currencyId\": \"string\",\n      \"purchaseOrderItems\": [\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"createdDate\": 5992,\n      \"lastModifiedDate\": 1818\n    },\n    {\n      \"id\": \"string\",\n      \"purchaseOrderNumber\": \"string\",\n      \"supplierId\": \"string\",\n      \"status\": \"string\",\n      \"orderDate\": 2196,\n      \"currencyId\": \"string\",\n      \"purchaseOrderItems\": [\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"createdDate\": 9191,\n      \"lastModifiedDate\": 7497\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23091097-1744-4d28-9911-0fdbbffd9006",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "properties",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additionalProperties",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16e25ea7-f5ea-42d4-99b3-0818d9fcc361",
+          "name": "Create a purchase order",
+          "request": {
+            "name": "Create a purchase order",
+            "description": {},
+            "url": {
+              "path": [
+                "purchaseOrder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "25e77041-19c5-4968-8678-8ccffe103623",
+              "name": "The created purchase order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60c01d80-56aa-4ef8-8313-4bd1152164f3",
+              "name": "The request was invalid (for example, an unknown or invalid property).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a056bda3-593d-4c1b-90bc-f35953b74e9c",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0865bd61-aeb8-4b07-91c0-3357c38b0a76",
+          "name": "Count purchase orders",
+          "request": {
+            "name": "Count purchase orders",
+            "description": {},
+            "url": {
+              "path": [
+                "purchaseOrder",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee98e6aa-48c8-439e-8ccf-d5c178de9529",
+              "name": "The count result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": 380\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dfd1248-8f1e-4a0a-9702-7c3fcce0ea73",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d7ecce1-f71a-4697-a521-463622bcbc6d",
+          "name": "Get a purchase order",
+          "request": {
+            "name": "Get a purchase order",
+            "description": {},
+            "url": {
+              "path": [
+                "purchaseOrder",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6051f429-8367-4444-8657-48b7e2011948",
+              "name": "The requested purchase order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c5de868-d42f-481a-8edf-74b112c433aa",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da086f03-115f-44e1-8e75-92247a47311e",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc8288a6-4d72-40d5-bc83-046cd0466712",
+          "name": "Update a purchase order",
+          "request": {
+            "name": "Update a purchase order",
+            "description": {},
+            "url": {
+              "path": [
+                "purchaseOrder",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3cd16f71-a5cb-406f-8675-6f8fad1c9379",
+              "name": "The updated purchase order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1acc034c-94e2-4a7b-b426-61ecc69fc351",
+              "name": "The request was invalid (for example, an unknown or invalid property).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8850817-6b77-4ad5-8003-defbe3617b6d",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5de3d79-ef4d-4a66-842e-1ee404964309",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"purchaseOrderNumber\": \"<string>\",\n  \"supplierId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"orderDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"purchaseOrderItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9c24a5e-abbd-44b7-a2dc-77cefb2534a4",
+          "name": "Delete a purchase order",
+          "request": {
+            "name": "Delete a purchase order",
+            "description": {},
+            "url": {
+              "path": [
+                "purchaseOrder",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c150a93-e723-4d87-aa66-3fe800703852",
+              "name": "The purchase order was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09c16310-d812-4acd-8620-80736997c452",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41233f36-acae-42ff-9bd8-fd7884502b9a",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseOrder",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.weclapp.com/webapp/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AuthenticationToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "912b1dc6-8cec-42c8-ad37-4c441402c848",
+    "name": "weclapp REST Article Purchase Order API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "weclapp is a German cloud ERP / CRM / commerce platform. Its REST API (v1) is exposed per tenant at https://{tenant}.weclapp.com/webapp/api/v1 and covers the platform's business entities - parties (customers, suppliers, contacts, leads), articles, sales orders, quotations, sales invoices, shipments, purchase orders, warehouses, and more (150+ entities in the full Swagger). Every entity follows the same CRUD conventions: list at `/{entity}`, count at `/{entity}/count`, fetch one at `/{entity}/id/{id}`, create with `POST /{entity}`, update with `PUT /{entity}/id/{id}`, and delete with `DELETE /{entity}/id/{id}`. Authentication is an API token sent in the `AuthenticationToken` request header. This document models a grounded, representative subset of the documented v1 entities; the request/response field schemas are modeled from documented field names rather than copied from weclapp's live Swagger, so property lists are illustrative and not exhaustive. Consult the live per-tenant Swagger at https://<tenant>.weclapp.com/webapp/api/v1/ (or https://www.weclapp.com/api/) for the authoritative schema.\n\nContact Support:\n Name: weclapp",
+      "type": "text/plain"
+    }
+  }
+}

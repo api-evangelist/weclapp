@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "weclapp REST Article Purchase Order API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AuthenticationToken",
+      "value": "{{AuthenticationToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Purchase Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List purchase orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/purchaseOrder",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for paginated list results."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`)."
+              },
+              {
+                "name": "properties",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "additionalProperties",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of computed / related properties to include in the response."
+              }
+            ]
+          },
+          "docs": "List purchase orders"
+        },
+        {
+          "info": {
+            "name": "Create a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/purchaseOrder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a purchase order"
+        },
+        {
+          "info": {
+            "name": "Count purchase orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/purchaseOrder/count"
+          },
+          "docs": "Count purchase orders"
+        },
+        {
+          "info": {
+            "name": "Get a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/purchaseOrder/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ]
+          },
+          "docs": "Get a purchase order"
+        },
+        {
+          "info": {
+            "name": "Update a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/purchaseOrder/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a purchase order"
+        },
+        {
+          "info": {
+            "name": "Delete a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/purchaseOrder/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ]
+          },
+          "docs": "Delete a purchase order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

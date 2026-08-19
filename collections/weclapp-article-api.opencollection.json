@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "weclapp REST Article API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AuthenticationToken",
+      "value": "{{AuthenticationToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Article",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/article",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for paginated list results."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`)."
+              },
+              {
+                "name": "properties",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "additionalProperties",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of computed / related properties to include in the response."
+              }
+            ]
+          },
+          "docs": "List articles"
+        },
+        {
+          "info": {
+            "name": "Create an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/article",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an article"
+        },
+        {
+          "info": {
+            "name": "Count articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/article/count"
+          },
+          "docs": "Count articles"
+        },
+        {
+          "info": {
+            "name": "Get an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/article/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ]
+          },
+          "docs": "Get an article"
+        },
+        {
+          "info": {
+            "name": "Update an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/article/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an article"
+        },
+        {
+          "info": {
+            "name": "Delete an article",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/article/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ]
+          },
+          "docs": "Delete an article"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

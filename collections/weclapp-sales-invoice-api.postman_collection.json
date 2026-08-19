@@ -1,0 +1,1413 @@
+{
+  "item": [
+    {
+      "id": "6f4fea91-328b-418a-ba7d-47b976aefb3b",
+      "name": "Sales Invoice",
+      "description": {
+        "content": "Sales invoices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "076ffe7a-6558-4995-96f1-2bb01803da52",
+          "name": "List sales invoices",
+          "request": {
+            "name": "List sales invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "salesInvoice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "1-based page number for paginated list results."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "properties",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "additionalProperties",
+                  "value": "<string>",
+                  "description": "Comma-separated list of computed / related properties to include in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4800348d-47c7-4f5d-99ac-903f3771b9af",
+              "name": "A page of sales invoices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "properties",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additionalProperties",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"customerId\": \"string\",\n      \"status\": \"string\",\n      \"invoiceDate\": 6108,\n      \"currencyId\": \"string\",\n      \"salesInvoiceItems\": [\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"createdDate\": 642,\n      \"lastModifiedDate\": 3296\n    },\n    {\n      \"id\": \"string\",\n      \"invoiceNumber\": \"string\",\n      \"customerId\": \"string\",\n      \"status\": \"string\",\n      \"invoiceDate\": 5221,\n      \"currencyId\": \"string\",\n      \"salesInvoiceItems\": [\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"articleId\": \"string\",\n          \"articleNumber\": \"string\",\n          \"quantity\": \"string\",\n          \"unitPrice\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"createdDate\": 4607,\n      \"lastModifiedDate\": 3294\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39b99f19-a2dd-4133-94a7-bd6cb177db6f",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "properties",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "additionalProperties",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa17eb35-e571-4405-8d2e-bf6d1bcd79e8",
+          "name": "Create a sales invoice",
+          "request": {
+            "name": "Create a sales invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "salesInvoice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a405012-d837-4167-9f27-fbfcddb95d0c",
+              "name": "The created sales invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d14e063f-aeed-4746-afb3-8e1472c764fb",
+              "name": "The request was invalid (for example, an unknown or invalid property).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d25948a4-877a-4132-af12-2e8e643c2234",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "650a14a2-1019-4593-812a-5680a03aee51",
+          "name": "Count sales invoices",
+          "request": {
+            "name": "Count sales invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "salesInvoice",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "248daff2-25ee-42db-b73d-bfd37f8ca8d3",
+              "name": "The count result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": 3608\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "189978c3-114f-4c1b-b7c4-cb7c70c4abc7",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d012e753-4b57-44c1-8ef9-7d614b53eb7d",
+          "name": "Get a sales invoice",
+          "request": {
+            "name": "Get a sales invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "salesInvoice",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44524cf8-d5a7-4cc4-9190-66ba46fc0547",
+              "name": "The requested sales invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bf0e936-9fca-4131-8d85-6ada895c2e71",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17bacef5-e2ac-47d5-8ec3-7b6f3cd5216a",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f772c782-8c3a-4624-9767-160b3c87fbb6",
+          "name": "Update a sales invoice",
+          "request": {
+            "name": "Update a sales invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "salesInvoice",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8bd591af-ff02-4388-afe9-60c7dd6b2a62",
+              "name": "The updated sales invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65fcc357-52bd-4d36-84ed-515336a7af02",
+              "name": "The request was invalid (for example, an unknown or invalid property).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "590c6be8-db60-4272-873c-2f2557c5766f",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91aa3978-fd2c-42b0-8530-dd179f63cce1",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoiceDate\": \"<long>\",\n  \"currencyId\": \"<string>\",\n  \"salesInvoiceItems\": [\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"articleId\": \"<string>\",\n      \"articleNumber\": \"<string>\",\n      \"quantity\": \"<string>\",\n      \"unitPrice\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"createdDate\": \"<long>\",\n  \"lastModifiedDate\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8fa8152-0f56-4a55-bd05-1c28dff5f14a",
+          "name": "Delete a sales invoice",
+          "request": {
+            "name": "Delete a sales invoice",
+            "description": {},
+            "url": {
+              "path": [
+                "salesInvoice",
+                "id",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the entity."
+                },
+                {
+                  "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fe1548b-2738-444d-be6b-23996b8d7251",
+              "name": "The sales invoice was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d68dae18-200e-4ad2-86b1-331928f98b3a",
+              "name": "Missing or invalid AuthenticationToken.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4f5453d-2411-4167-8e8b-3e02ea0b3ced",
+              "name": "The requested entity was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "salesInvoice",
+                    "id",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the entity."
+                    },
+                    {
+                      "description": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AuthenticationToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your weclapp tenant subdomain (for example, the \"acme\" in acme.weclapp.com).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.weclapp.com/webapp/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AuthenticationToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "809b919c-96be-4f55-8a69-6949f49df28f",
+    "name": "weclapp REST Article Sales Invoice API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "weclapp is a German cloud ERP / CRM / commerce platform. Its REST API (v1) is exposed per tenant at https://{tenant}.weclapp.com/webapp/api/v1 and covers the platform's business entities - parties (customers, suppliers, contacts, leads), articles, sales orders, quotations, sales invoices, shipments, purchase orders, warehouses, and more (150+ entities in the full Swagger). Every entity follows the same CRUD conventions: list at `/{entity}`, count at `/{entity}/count`, fetch one at `/{entity}/id/{id}`, create with `POST /{entity}`, update with `PUT /{entity}/id/{id}`, and delete with `DELETE /{entity}/id/{id}`. Authentication is an API token sent in the `AuthenticationToken` request header. This document models a grounded, representative subset of the documented v1 entities; the request/response field schemas are modeled from documented field names rather than copied from weclapp's live Swagger, so property lists are illustrative and not exhaustive. Consult the live per-tenant Swagger at https://<tenant>.weclapp.com/webapp/api/v1/ (or https://www.weclapp.com/api/) for the authoritative schema.\n\nContact Support:\n Name: weclapp",
+      "type": "text/plain"
+    }
+  }
+}

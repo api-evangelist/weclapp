@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "weclapp REST Article Quotation API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AuthenticationToken",
+      "value": "{{AuthenticationToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Quotation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List quotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/quotation",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "1-based page number for paginated list results."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`)."
+              },
+              {
+                "name": "properties",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response."
+              },
+              {
+                "name": "additionalProperties",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of computed / related properties to include in the response."
+              }
+            ]
+          },
+          "docs": "List quotations"
+        },
+        {
+          "info": {
+            "name": "Create a quotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/quotation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a quotation"
+        },
+        {
+          "info": {
+            "name": "Count quotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/quotation/count"
+          },
+          "docs": "Count quotations"
+        },
+        {
+          "info": {
+            "name": "Get a quotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/quotation/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ]
+          },
+          "docs": "Get a quotation"
+        },
+        {
+          "info": {
+            "name": "Update a quotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/quotation/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a quotation"
+        },
+        {
+          "info": {
+            "name": "Delete a quotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.weclapp.com/webapp/api/v1/quotation/id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the entity."
+              }
+            ]
+          },
+          "docs": "Delete a quotation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
