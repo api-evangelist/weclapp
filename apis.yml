@@ -36,6 +36,17 @@ tags:
 - Germany
 - Order Management
 - Business Software
+- Software-as-a-Service
+tags_raw:
+- ERP
+- CRM
+- Cloud ERP
+- Accounting
+- Inventory
+- Commerce
+- Germany
+- Order Management
+- Business Software
 - SaaS
 created: '2026-07-12'
 modified: '2026-07-12'
@@ -65,6 +76,8 @@ apis:
   humanURL: https://www.weclapp.com/api/
   baseURL: https://{tenant}.weclapp.com/webapp/api/v1
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
