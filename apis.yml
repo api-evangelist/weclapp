@@ -193,6 +193,9 @@ apis:
   - type: OpenCollection
     url: collections/weclapp.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/weclapp-capability-edges.yml
+  name: weclapp Business Capability Map
 - type: AgenticAccess
   url: agentic-access/weclapp-agentic-access.yml
 - type: DomainSecurity
