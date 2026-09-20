@@ -10,6 +10,13 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: business-product
 pricing_basis: per-seat
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-09-20'
+  evidence: However, for those interested in hosting weclapp themselves on-site in their private cloud,
+    we offer weclappOn.
+  managed_tier: ERP Starter
 published: true
 note: Cloud ERP pricing page; per-user seat pricing with yearly and monthly variants, add-ons and single
   licenses. API access included in ERP Services/Trade packages ('API interface (services&trade)'), not
