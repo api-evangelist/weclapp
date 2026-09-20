@@ -193,6 +193,8 @@ apis:
   - type: OpenCollection
     url: collections/weclapp.opencollection.json
 common:
+- type: Pricing
+  url: https://www.weclapp.com/en/pricing/
 - type: CapabilityMap
   url: capabilities/weclapp-capability-edges.yml
   name: weclapp Business Capability Map
