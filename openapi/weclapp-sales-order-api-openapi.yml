@@ -134,6 +134,36 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    OrderItem:
+      type: object
+      description: A line item on an order, quotation, or invoice. Modeled subset.
+      properties:
+        id:
+          type: string
+        articleId:
+          type: string
+        articleNumber:
+          type: string
+        quantity:
+          type: string
+          description: Decimal quantity serialized as a string.
+        unitPrice:
+          type: string
+        title:
+          type: string
+    Error:
+      type: object
+      description: Error envelope (modeled; consult live Swagger for the exact shape).
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
     SalesOrder:
       type: object
       description: Sales order. Modeled subset of documented fields.
@@ -169,36 +199,6 @@ components:
         result:
           type: integer
           description: The number of matching entities.
-    OrderItem:
-      type: object
-      description: A line item on an order, quotation, or invoice. Modeled subset.
-      properties:
-        id:
-          type: string
-        articleId:
-          type: string
-        articleNumber:
-          type: string
-        quantity:
-          type: string
-          description: Decimal quantity serialized as a string.
-        unitPrice:
-          type: string
-        title:
-          type: string
-    Error:
-      type: object
-      description: Error envelope (modeled; consult live Swagger for the exact shape).
-      properties:
-        messages:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              message:
-                type: string
     SalesOrderList:
       type: object
       properties:
@@ -216,6 +216,20 @@ components:
         type: integer
         minimum: 1
         default: 1
+    Properties:
+      name: properties
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    AdditionalProperties:
+      name: additionalProperties
+      in: query
+      required: false
+      description: Comma-separated list of computed / related properties to include in the response.
+      schema:
+        type: string
     Sort:
       name: sort
       in: query
@@ -232,20 +246,6 @@ components:
         type: integer
         minimum: 1
         default: 100
-    Properties:
-      name: properties
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    AdditionalProperties:
-      name: additionalProperties
-      in: query
-      required: false
-      description: Comma-separated list of computed / related properties to include in the response.
-      schema:
-        type: string
     Id:
       name: id
       in: path
@@ -254,6 +254,12 @@ components:
       schema:
         type: string
   responses:
+    NotFound:
+      description: The requested entity was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Missing or invalid AuthenticationToken.
       content:
@@ -262,12 +268,6 @@ components:
             $ref: '#/components/schemas/Error'
     BadRequest:
       description: The request was invalid (for example, an unknown or invalid property).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested entity was not found.
       content:
         application/json:
           schema:

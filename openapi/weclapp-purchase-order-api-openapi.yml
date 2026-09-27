@@ -214,6 +214,20 @@ components:
         type: integer
         minimum: 1
         default: 1
+    Properties:
+      name: properties
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    AdditionalProperties:
+      name: additionalProperties
+      in: query
+      required: false
+      description: Comma-separated list of computed / related properties to include in the response.
+      schema:
+        type: string
     Sort:
       name: sort
       in: query
@@ -230,20 +244,6 @@ components:
         type: integer
         minimum: 1
         default: 100
-    Properties:
-      name: properties
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    AdditionalProperties:
-      name: additionalProperties
-      in: query
-      required: false
-      description: Comma-separated list of computed / related properties to include in the response.
-      schema:
-        type: string
     Id:
       name: id
       in: path
@@ -252,6 +252,12 @@ components:
       schema:
         type: string
   responses:
+    NotFound:
+      description: The requested entity was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Missing or invalid AuthenticationToken.
       content:
@@ -260,12 +266,6 @@ components:
             $ref: '#/components/schemas/Error'
     BadRequest:
       description: The request was invalid (for example, an unknown or invalid property).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested entity was not found.
       content:
         application/json:
           schema:
