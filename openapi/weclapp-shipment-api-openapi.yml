@@ -133,9 +133,56 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    PageSize:
+      name: pageSize
+      in: query
+      required: false
+      description: Number of results per page.
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+    AdditionalProperties:
+      name: additionalProperties
+      in: query
+      required: false
+      description: Comma-separated list of computed / related properties to include in the response.
+      schema:
+        type: string
+    Properties:
+      name: properties
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the entity.
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 1-based page number for paginated list results.
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Sort:
+      name: sort
+      in: query
+      required: false
+      description: Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`).
+      schema:
+        type: string
   responses:
-    Unauthorized:
-      description: Missing or invalid AuthenticationToken.
+    BadRequest:
+      description: The request was invalid (for example, an unknown or invalid property).
       content:
         application/json:
           schema:
@@ -146,73 +193,19 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request was invalid (for example, an unknown or invalid property).
+    Unauthorized:
+      description: Missing or invalid AuthenticationToken.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the entity.
-      schema:
-        type: string
-    Sort:
-      name: sort
-      in: query
-      required: false
-      description: Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`).
-      schema:
-        type: string
-    Properties:
-      name: properties
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    PageSize:
-      name: pageSize
-      in: query
-      required: false
-      description: Number of results per page.
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-    Page:
-      name: page
-      in: query
-      required: false
-      description: 1-based page number for paginated list results.
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    AdditionalProperties:
-      name: additionalProperties
-      in: query
-      required: false
-      description: Comma-separated list of computed / related properties to include in the response.
-      schema:
-        type: string
   schemas:
-    Error:
+    CountResult:
       type: object
-      description: Error envelope (modeled; consult live Swagger for the exact shape).
       properties:
-        messages:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              message:
-                type: string
+        result:
+          type: integer
+          description: The number of matching entities.
     Shipment:
       type: object
       description: Outbound shipment / delivery. Modeled subset of documented fields.
@@ -238,6 +231,19 @@ components:
         lastModifiedDate:
           type: integer
           format: int64
+    Error:
+      type: object
+      description: Error envelope (modeled; consult live Swagger for the exact shape).
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
     ShipmentList:
       type: object
       properties:
@@ -245,12 +251,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Shipment'
-    CountResult:
-      type: object
-      properties:
-        result:
-          type: integer
-          description: The number of matching entities.
   securitySchemes:
     authenticationToken:
       type: apiKey
