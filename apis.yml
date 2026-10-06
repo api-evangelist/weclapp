@@ -61,7 +61,7 @@ tags_raw:
 - Business Software
 - SaaS
 created: '2026-07-12'
-modified: '2026-07-12'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: weclapp:weclapp-article-api
@@ -193,6 +193,8 @@ apis:
   - type: OpenCollection
     url: collections/weclapp.opencollection.json
 common:
+- url: https://www.weclapp.com/de/blog/
+  type: Blog
 - type: Pricing
   url: https://www.weclapp.com/en/pricing/
 - type: CapabilityMap
