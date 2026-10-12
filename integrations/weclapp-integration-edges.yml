@@ -1,0 +1,22 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/weclapp/integrations
+checked:
+- https://composio.dev/toolkits/weclapp
+- https://monid.ai/tools/weclapp
+- https://n8n.io/integrations/weclapp/
+- https://zapier.com/apps/weclapp/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: weclapp
+  url: https://zapier.com/apps/weclapp/integrations
+  external_url: https://www.weclapp.com/
+  partner_tier: null
+  triggers: []
+  actions: []
+  searches: []
+edges: []
+templates: []
