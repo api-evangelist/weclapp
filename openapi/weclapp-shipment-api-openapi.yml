@@ -134,36 +134,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   parameters:
-    PageSize:
-      name: pageSize
-      in: query
-      required: false
-      description: Number of results per page.
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-    AdditionalProperties:
-      name: additionalProperties
-      in: query
-      required: false
-      description: Comma-separated list of computed / related properties to include in the response.
-      schema:
-        type: string
-    Properties:
-      name: properties
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response.
-      schema:
-        type: string
-    Id:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the entity.
-      schema:
-        type: string
     Page:
       name: page
       in: query
@@ -173,6 +143,29 @@ components:
         type: integer
         minimum: 1
         default: 1
+    AdditionalProperties:
+      name: additionalProperties
+      in: query
+      required: false
+      description: Comma-separated list of computed / related properties to include in the response.
+      schema:
+        type: string
+    PageSize:
+      name: pageSize
+      in: query
+      required: false
+      description: Number of results per page.
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+    Id:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the entity.
+      schema:
+        type: string
     Sort:
       name: sort
       in: query
@@ -180,13 +173,14 @@ components:
       description: Property to sort by. Prefix with a minus sign for descending order (for example, `-createdDate`).
       schema:
         type: string
+    Properties:
+      name: properties
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response.
+      schema:
+        type: string
   responses:
-    BadRequest:
-      description: The request was invalid (for example, an unknown or invalid property).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     NotFound:
       description: The requested entity was not found.
       content:
@@ -199,7 +193,33 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request was invalid (for example, an unknown or invalid property).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      description: Error envelope (modeled; consult live Swagger for the exact shape).
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+    ShipmentList:
+      type: object
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shipment'
     CountResult:
       type: object
       properties:
@@ -231,26 +251,6 @@ components:
         lastModifiedDate:
           type: integer
           format: int64
-    Error:
-      type: object
-      description: Error envelope (modeled; consult live Swagger for the exact shape).
-      properties:
-        messages:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-              message:
-                type: string
-    ShipmentList:
-      type: object
-      properties:
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Shipment'
   securitySchemes:
     authenticationToken:
       type: apiKey
