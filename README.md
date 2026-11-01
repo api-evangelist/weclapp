@@ -1,4 +1,4 @@
-# weclapp (weclapp)
+# weclapp
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,192 +64,131 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-weclapp is a German cloud ERP / CRM / commerce platform for small and mid-sized businesses, combining CRM, sales, order management, accounting, inventory / warehouse management, purchasing, and e-commerce in one SaaS suite.
+weclapp is a German cloud ERP / CRM / commerce platform for small and mid-sized businesses, combining CRM, sales, order management, accounting, inventory / warehouse management, purchasing, and e-commerce in one SaaS suite. Every weclapp tenant exposes a documented REST API at https://<tenant>.weclapp.com/webapp/api/v1/ with a live Swagger, covering 150+ business entities - parties (customers, suppliers, contacts, leads), articles, sales orders, quotations, sales invoices, shipments, purchase orders, warehouses, and more. Authentication is a per-user API token sent in the AuthenticationToken request header.
 
-## Access Model (read this first)
+**Areas:** ERP · CRM · Cloud ERP · Accounting · Inventory · Commerce · Germany · Order Management · Business Software · Software-as-a-Service
 
-- **Per-tenant host.** There is no single shared API host. Each weclapp customer gets their own subdomain, and the REST API lives under it: `https://<tenant>.weclapp.com/webapp/api/v1/`. Replace `<tenant>` with your weclapp subdomain (the `acme` in `acme.weclapp.com`). In this repo the per-tenant host is represented with a `{tenant}` server variable in the OpenAPI and as `https://{tenant}.weclapp.com/webapp/api/v1` in the base URLs — it is intentionally not a real, callable host.
-- **Authentication.** A per-user API token, sent in the `AuthenticationToken` request header (`AuthenticationToken: <your-token>`). Generate it inside weclapp under **My Settings > API**. This is not OAuth and not a `Bearer` token.
-- **Required headers.** All requests must send `Accept: application/json`. `POST` and `PUT` requests must also send `Content-Type: application/json`.
-- **Live Swagger.** Every tenant serves an interactive Swagger UI for its own API version. The public documentation entry point is [https://www.weclapp.com/api/](https://www.weclapp.com/api/).
-- **CRUD conventions.** Each entity follows the same pattern: list at `GET /{entity}`, count at `GET /{entity}/count`, fetch one at `GET /{entity}/id/{id}`, create at `POST /{entity}`, update at `PUT /{entity}/id/{id}`, delete at `DELETE /{entity}/id/{id}`. List endpoints support `page`, `pageSize`, `sort`, `properties`, `additionalProperties`, and per-property filter operators (for example `?articleNumber-eq=SKU-1`).
-- **API v2 note.** weclapp is rolling out an API v2 that consolidates `/customer`, `/contact`, `/lead`, and `/supplier` into a single `/party` endpoint. This catalog entry models the stable, widely-used **v1** surface (`/customer`, `/salesOrder`, etc.).
+## weclapp on APIs.io
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/weclapp/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/weclapp/refs/heads/main/apis.yml)
+Everything profiled for weclapp is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/weclapp/](https://apis.io/providers/weclapp/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- ERP
-- CRM
-- Cloud ERP
-- Accounting
-- Inventory
-- Commerce
-- Germany
-- Order Management
-- Business Software
-- SaaS
+- [weclapp Article API](https://apis.io/apis/weclapp/weclapp-article-api/) — Articles / products in the catalog.
+- [weclapp Customer API](https://apis.io/apis/weclapp/weclapp-customer-api/) — Customer master data (a party in the customer role).
+- [weclapp Purchase Order API](https://apis.io/apis/weclapp/weclapp-purchase-order-api/) — Purchase orders to suppliers.
+- [weclapp Quotation API](https://apis.io/apis/weclapp/weclapp-quotation-api/) — Sales quotations / quotes.
+- [weclapp Sales Invoice API](https://apis.io/apis/weclapp/weclapp-sales-invoice-api/) — Sales invoices.
+- [weclapp Sales Order API](https://apis.io/apis/weclapp/weclapp-sales-order-api/) — Sales orders.
+- [weclapp Shipment API](https://apis.io/apis/weclapp/weclapp-shipment-api/) — Outbound shipments / deliveries.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-12
-- **Modified:** 2026-07-12
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### weclapp Customer API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Create, read, update, delete, list, and count customer master data. In weclapp's data model a customer is a party in the customer role; the API v1 exposes it at `/customer` with the standard list, `/count`, and `/id/{id}` patterns.
+- [Weclapp Agentic Access](https://apis.io/agentic-access/weclapp/weclapp-agentic-access/)
 
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
+#### Collections (8)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- CRM
-- Customers
-- Party
+- [weclapp REST API](https://apis.io/collections/weclapp/open-weclapp/)
+- [weclapp REST Article API](https://apis.io/collections/weclapp/open-weclapp-article-api/)
+- [weclapp REST Article Customer API](https://apis.io/collections/weclapp/open-weclapp-customer-api/)
+- [weclapp REST Article Purchase Order API](https://apis.io/collections/weclapp/open-weclapp-purchase-order-api/)
+- [weclapp REST Article Quotation API](https://apis.io/collections/weclapp/open-weclapp-quotation-api/)
+- [weclapp REST Article Sales Invoice API](https://apis.io/collections/weclapp/open-weclapp-sales-invoice-api/)
+- [weclapp REST Article Sales Order API](https://apis.io/collections/weclapp/open-weclapp-sales-order-api/)
+- [weclapp REST Article Shipment API](https://apis.io/collections/weclapp/open-weclapp-shipment-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://www.weclapp.com/api/)
-- [API Reference](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### weclapp Article API
+- [Weclapp Authentication](https://apis.io/security/weclapp/weclapp-authentication/)
+- [Weclapp Domain Security](https://apis.io/security/weclapp/weclapp-domain-security/)
 
-Manage catalog articles / products - article number (SKU), name, description, unit, type, and status - with list, count, get, create, update, and delete operations at `/article`.
+#### Plans and pricing (2)
 
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
+Published plans, tiers and prices.
 
-#### Tags
+- [Weclapp Plans Pricing](https://apis.io/plans/weclapp/weclapp-plans-pricing/)
+- [Weclapp Price Estimates](https://apis.io/plans/weclapp/weclapp-price-estimates/)
 
-- Articles
-- Products
-- Catalog
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Weclapp Rate Limits](https://apis.io/rate-limits/weclapp/weclapp-rate-limits/)
 
-### weclapp Sales Order API
+#### FinOps (1)
 
-Create and manage sales orders with their order items, customer, currency, status, and dates at `/salesOrder`, using the standard list, `/count`, and `/id/{id}` conventions.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
+- [Weclapp Finops](https://apis.io/finops/weclapp/weclapp-finops/)
 
-#### Tags
+## Where to find this API
 
-- Sales Orders
-- Order Management
-- Sales
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### weclapp Quotation API
-
-Manage sales quotations / quotes and their line items at `/quotation`, including list, count, get, create, update, and delete.
-
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
-
-#### Tags
-
-- Quotations
-- Quotes
-- Sales
-
-#### Properties
-
-- [Documentation](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### weclapp Sales Invoice API
-
-Create and manage sales invoices with their items, customer, currency, status, and invoice date at `/salesInvoice`, using list, `/count`, and `/id/{id}`.
-
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
-
-#### Tags
-
-- Invoices
-- Accounting
-- Billing
-
-#### Properties
-
-- [Documentation](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### weclapp Shipment API
-
-Manage outbound shipments / deliveries linked to sales orders and warehouses at `/shipment`, including list, count, get, create, update, and delete.
-
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
-
-#### Tags
-
-- Shipments
-- Fulfillment
-- Inventory
-
-#### Properties
-
-- [Documentation](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### weclapp Purchase Order API
-
-Create and manage purchase orders to suppliers with their items, supplier, currency, status, and order date at `/purchaseOrder`, using list, `/count`, and `/id/{id}`.
-
-- **Human URL:** [https://www.weclapp.com/api/](https://www.weclapp.com/api/)
-- **Base URL:** `https://{tenant}.weclapp.com/webapp/api/v1`
-
-#### Tags
-
-- Purchase Orders
-- Purchasing
-- Procurement
-
-#### Properties
-
-- [Documentation](https://www.weclapp.com/api/)
-- [OpenAPI](openapi/weclapp-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/weclapp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/weclapp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Domain Security](security/weclapp-domain-security.yml)
-- [Authentication](authentication/weclapp-authentication.yml)
-- [LinkedIn](https://www.linkedin.com/company/weclapp)
 - [Website](https://www.weclapp.com/)
 - [Documentation](https://www.weclapp.com/api/)
-- [Plans](plans/weclapp-plans-pricing.yml)
-- [Rate Limits](rate-limits/weclapp-rate-limits.yml)
-- [Fin Ops](finops/weclapp-finops.yml)
+- [Pricing](https://www.weclapp.com/en/pricing/)
+- [Blog](https://www.weclapp.com/de/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 42.1 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/weclapp/](https://apis.io/providers/weclapp/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for weclapp: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/weclapp/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
